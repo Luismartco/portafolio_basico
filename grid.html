@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="scrpts/clima.js"></script>
+  <script src="styles/clima.css"></script>
+  <title>Cuadrícula de Listas</title>
+  <style>
+    body{
+      background-image: url('https://i.imgur.com/CnZcJWq.gif');
+      background-size: cover; /* Para que el GIF cubra toda la pantalla */
+      background-repeat: no-repeat; /* Para que no se repita el GIF */
+            background-position: center; /* Para centrar el GIF */
+            margin: 0;
+        }
+      .fixed-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 200px); /* 3 columnas de 200px */
+          grid-template-rows: repeat(4, 200px); /* 4 filas de 200px */
+          gap: 20px; /* Espacio entre las celdas */
+      }
+      .item-span-2 {
+          grid-column: span 2; /* El elemento abarca 2 columnas */
+      }
+      .bg-custom {
+          background-color: #3b82f6; /* Color azul */
+      }
+      #weather-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            transition: background-color 1s, color 1s;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+      #github{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }  
+      #presentacion{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      #tec{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(45deg, red, blue, green, yellow);
+        background-size: 400% 400%;
+        animation: gradienteAnimacion 12s ease infinite;
+      }
+      @keyframes gradienteAnimacion {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+        #gif-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        #gif-container img {
+            display: block;
+        }
+        #gif-container p {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+.daytime {
+    background-color: #87CEEB; /* Azul cielo */
+    color: #333;
+}
+.nighttime {
+    background-color: #2c3e50; /* Azul oscuro */
+    color: #ecf0f1;
+}
+.sunrise {
+    background-color: #FFA07A; /* Naranja suave */
+    color: #333;
+}
+.sunset {
+    background-color: #FF4500; /* Naranja oscuro */
+    color: #fff;
+}
+#temperature {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+#city {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+#bg-custom{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px; /* Espaciado entre los íconos */
+            padding: 16px; /* Padding del contenedor */
+            background-color: #f0f0f0; /* Fondo del contenedor principal */
+            border-radius: 16px; /* Bordes redondeados del contenedor */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center">
+<div class="grid grid-cols-5 grid-rows-5 gap-4 fixed-grid mt-10 mb-10">
+  <div id="presentacion" class="relative flex items-center justify-center rounded shadow rounded-2xl overflow-hidden col-span-2 p-4">
+    <img src="image/estrellas.jpg"class="absolute inset-0 w-full h-full object-cover">
+    <p class="text-white relative z-10"><strong>Bienvenidos a mi portafolio.</strong> <br> Mi nombre es Luis Gabriel Martínez Contreras. Actualmente me encuentro finalizando mi carrera de Ingeniería de Sistemas.</p>
+  </div>
+  <div id="weather-box" class="bg-custom flex items-center justify-center rounded shadow rounded-2xl overflow-hidden col-span-2">
+    <div id="temperature">Cargando...</div>
+    <div id="city">Ubicación desconocida</div>
+  </div>
+  <div id="github" class="bg-white flex items-center justify-center rounded shadow rounded-2xl overflow-hidden col-span-2 col-start-2 row-start-2">
+    <a href="https://github.com/Luismartco" target="_blank">
+      <img src="image/git.png" alt="Mi perfil de GitHub">
+    </a>
+  </div>
+  <div id="tec" class="flex items-center justify-center rounded shadow rounded-2xl overflow-hidden col-start-1 row-start-2">
+    <p align="center">
+      <a href="https://skillicons.dev">
+        <img src="https://skillicons.dev/icons?i=git,py,laravel" style="margin: 8px;"/>
+        <img src="https://skillicons.dev/icons?i=mysql,postman,php" style="margin: 8px;"/>
+        <img src="https://skillicons.dev/icons?i=html,css,js" style="margin: 8px;"/>
+      </a>
+    </p>
+  </div>
+  <div class="bg-custom flex items-center justify-center rounded shadow rounded-2xl overflow-hidden col-span-3 row-start-3">Aqui iba la API de spotify pero no aceptan cuentas pitaras xd</div>
+  <div id="gif-container" onclick="window.open('https://drive.google.com/drive/folders/17aV2GwEhAxFYLW3R0S69BJRJWK9nkK9Q?usp=drive_link', '_blank');" class="bg-custom flex items-center justify-center rounded shadow rounded-2xl overflow-hidden row-start-4">
+    <p>Estudios/Certificados</p>
+    <img src="https://media1.tenor.com/m/OlQRbKJiRdwAAAAC/yui-k-on.gif" target="_blank" alt="GIF" width="300">
+  </div>
+  <div id="bg-custom" class="bg-custom grid grid-cols-2 gap-4 items-center justify-center rounded shadow rounded-2xl overflow-hidden">
+    <div class="icon-container" onclick="window.open('https://www.instagram.com/luismarbv/', '_blank');">
+        <img src="image/instagram.png" alt="Icon">
+    </div>
+    <div class="icon-container" onclick="window.open('https://www.linkedin.com/in/luismarbv/', '_blank');">
+        <img src="image/linkedin.png" alt="Icon">
+    </div>
+    <div class="icon-container" onclick="window.open('https://www.reddit.com/user/External_Abroad9480/', '_blank');">
+        <img src="image/reddit.png" alt="Icon">
+    </div>
+    <div class="icon-container" onclick="window.open('https://x.com/theluismar1', '_blank');">
+        <img src="image/tw.png" alt="Icon">
+    </div>
+</div>
+  <div class="bg-custom flex items-center justify-center rounded shadow rounded-2xl overflow-hidden row-start-4">Examen de ingles</div>
+</div>
+</body>
+</html>
